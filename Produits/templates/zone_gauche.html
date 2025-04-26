@@ -41,13 +41,7 @@
        </ul>
        <div class="account-info">
          {% if user.is_authenticated %}
-         <div class="account-info-picture">
- 
-           
-           <a href="{% url 'deconnection' %}">
-           <img src="{% static "img-profil.png" %}" alt="Account">
-           
-         </div>
+        
          <div class="account-info-name">{{request.user }} </div>
        </a>
        {% endif %}
