@@ -9,6 +9,8 @@ from django.http import JsonResponse
 from datetime import datetime
 from django.contrib import messages
 
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -22,7 +24,7 @@ from django.contrib import messages
     #}
     #return render(request,'home.html', context)
 
-class Affichage(ListView):
+class Affichage(LoginRequiredMixin,ListView):
 
   
     template_name='home.html'
@@ -41,7 +43,7 @@ class AjoutProduits(CreateView):
     template_name='ajout_donnees.html'
     success_url = reverse_lazy('home')
 
-#class update_donnees(UpdateView):
+#class update_donnees(login_requiredMixin,UpdateView):
      
  #    model= Produits 
 
@@ -59,7 +61,7 @@ def supprimer(request, id):
      return JsonResponse ({'success': False, 'message': "Methode non autorisé"}) 
 
      
-
+@login_required(login_url='login')
 def recherche(request):
      query= request.GET.get('produit')
      donnees=Produits.objects.filter(name__icontains=query)
@@ -68,9 +70,10 @@ def recherche(request):
      }
      return render(request,'resultat_recherche.html', context)
 
-
+@login_required(login_url='login')
 def Acc (request):
      return render(request, 'acc.html')
+
 
 
 def detail(request, id):
@@ -80,7 +83,7 @@ def detail(request, id):
 
 
      
-class edit(DetailView):
+class edit(LoginRequiredMixin,DetailView):
      model = Produits
      template_name= 'detail.html'
      context_object_name='n'
