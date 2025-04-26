@@ -16,6 +16,8 @@ def Creation_compte(request):
     username=request.POST['username']
     email=request.POST['email']
     password_confirm=request.POST['password_confirm']
+    password = request.POST['password']
+
 
 
 

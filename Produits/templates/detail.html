@@ -5,7 +5,8 @@
  {% if messages %}
  <ul class="messages">
      {% for message in messages  %}                            
-     <li {% if message.tags %} class="{ message.tags }" {% endif %} style="color: green;" >
+     <li {% if message.tags %} class="{{ message.tags }}" {% endif %} style="color: green;" >
+
          {{message}}
      </li>
      {% endfor %}
@@ -26,7 +27,7 @@
  
  {% else %}
  <h3 style="color: green;">Le produit peut-être vendu </h3>
- <a href="{% url 'ajoutvente' n.id %}">
+ <a href="{% url 'detail' n.id %}">
    <button class="app-content-headerButton"> <i class="bi bi-plus-square-fill"></i> Vendre {{n.name}}</button>
  </a>
  

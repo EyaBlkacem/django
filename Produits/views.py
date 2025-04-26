@@ -97,25 +97,25 @@ class edit(LoginRequiredMixin,DetailView):
 
 
 #def modifier(request, id):
- #      produit= get_object_or_404(Produits, id=id)
-  #     categories= Categories.objects.all()
-   #    errors={}
+     #produit= get_object_or_404(Produits, id=id)
+     #categories= Categories.objects.all()
+     #errors={}
 
-    #   if request.method=='POST' :
-     #       name=request.POST.get('name')
-      #      category_id=request.POST.get('category')
-       #     price= request.POST.get('price')
-        #    quantite= request.POST.get('quantite')
-         #   description= request.POST.get('description')
-          #  date_expiration= request.POST.get('date_expiration')
-           # image= request.FILES.get('image')
+     #if request.method=='POST' :
+            #name=request.POST.get('name')
+            #category_id=request.POST.get('category')
+            #price= request.POST.get('price')
+            #quantite= request.POST.get('quantite')
+            #description= request.POST.get('description')
+            #date_expiration= request.POST.get('date_expiration')
+            #image= request.FILES.get('image')
 
             #if not name:
-             #    errors['name']="le nom est requis"
+              #   errors['name']="le nom est requis"
 
 
             #if not category_id:
-            #     errors['category']="la categorie est requise"
+             #    errors['category']="la categorie est requise"
 
             #if not price :
              #    errors['price']= "le prix est requis"
@@ -126,9 +126,9 @@ class edit(LoginRequiredMixin,DetailView):
             #if not description:
              #    errors['description']= "la description est requise"
 
-           # if date_expiration:
+            #if date_expiration:
 
-            #     try:
+            #try:
              #         datetime.strftime(date_expiration, '%Y-%m-%d')  
               #   except ValueError:
                #       errors['date_expiration']= "le format de la date d'expiration est incorect" 
